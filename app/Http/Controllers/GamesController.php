@@ -11,7 +11,7 @@ class GamesController extends Controller
     {
         //$videogames = array('Fifa 22', 'NBA 22', 'Mario Kart', 'Super Mario');
         $videogames = Videogame::all();
-        return view('index', ['games'=> $videogames]);
+        return view('index', ['games' => $videogames]);
     }
     public function create()
     {

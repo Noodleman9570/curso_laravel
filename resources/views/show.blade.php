@@ -17,6 +17,8 @@
     
     <?php endif; ?>
 
+    <h3>{{ $fecha }}</h3>
+
     @if ($categoryGame) {{-- Estructuras de control con etiquetas de la plantillas blade --}}
 
         <h1>Bienvenido a la pagina del juego: {{ $nameVideogame }} que pertenece a la categoria: {{ $categoryGame }}</h1>
