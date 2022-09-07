@@ -11,18 +11,21 @@
 
     <p><a href="{{ route('games') }}">Listar todos los juegos</a></p>
 
-    <form action="{{ route('createVideogame') }}" method="POST">
+    <form action="{{ route('updateVideogame') }}" method="POST">
 
         @csrf 
 
-        <input type="text" placeholder="Nombre del videojuego" name="name_game">
+        <input type="hidden" name="game_id" value="{{ $game->id }}">
+
+        <input type="text" placeholder="Nombre del videojuego" name="name_game" value="{{ $game->name }}">
         @error('name_game')
             {{ $message }}
         @enderror
+        
         <select name="category_id" id="">
 
             @forelse ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}" @if($category->id == $game->category_id) selected @endif >{{ $category->name }}</option>
             @empty
                 <option value="">No hay categorias para mostrar</option>
             @endforelse
